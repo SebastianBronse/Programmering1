@@ -65,18 +65,15 @@ public class MainBlackJack {
 		while (true) {
 			Player player = playerList.get(playersTurn);
 			System.out.println(player.getName() + "'s turn.");
-			JOptionPane.showMessageDialog(null, player.getName() + "'s turn.");
 			
 			if (stage == 1 && dealerStage1 != true) {
 				dealer.addCard( deck.getCard() );
 				System.out.println("The dealer card: ");
-				JOptionPane.showMessageDialog(null, "The dealers card: ");
 				dealer.printCards();
 				dealerStage1 = true;
 			} else if (stage == 3 && dealerStage3 == false) {
 				dealer.addCard( deck.getCard() );
 				System.out.println("The dealer cards: ");
-				JOptionPane.showMessageDialog(null, "The dealers cards: ");
 				dealerStage3 = true; 
 			}
 			
@@ -84,7 +81,7 @@ public class MainBlackJack {
 			player.bet();
 			} else if (stage == 1) {
 				player.addCard( deck.getCard() );
-				player.addCard( deck.getCard() ); 
+				player.addCard( deck.getCard() ); 	
 			} else if (stage == 2) {
 				player.printCards();
 				while (true) {
@@ -94,7 +91,6 @@ public class MainBlackJack {
 					}
 					
 					System.out.println("Would you like one more card?");
-					JOptionPane.showInputDialog(null, "Would you like one more card?");
 					if (player.getOneMoreCard() == true) {
 						player.addCard( deck.getCard() ); 
 						player.printCards();

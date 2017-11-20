@@ -41,6 +41,7 @@ public class Player {
 			} else if (answer.equalsIgnoreCase("no")) {
 				return false;
 			} else {
+				System.out.println("Incorrect input, answer Yes or No");
 			}
 		}
 	}
@@ -54,7 +55,6 @@ public class Player {
 			value  += playersCards.get(i).getValue();
 		}
 		return value;
-		
 	}
 		public void printCards() {
 			for (int i = 0; i < playersCards.size(); i++) {
@@ -66,6 +66,7 @@ public class Player {
 			System.out.println("Do you want to bet? (Yes/No)");
 			
 			while (true) {
+				//String answer = playerScanner.nextLine();
 				int answer = JOptionPane.showConfirmDialog(null, name + ", do you want to bet?","alert", JOptionPane.YES_NO_OPTION);
 				if (answer == 0) {
 					break;
@@ -76,13 +77,11 @@ public class Player {
 			System.out.println("How much do you want to bet? ");
 			while (true) {
 				try {
-					int bet = Integer.parseInt (JOptionPane.showInputDialog(null, "How much do you want to bet? "));
+				int bet = Integer.parseInt( playerScanner.nextLine());
 				if (bet > dollar) {
 					System.out.println("You only have: " + dollar);
-					JOptionPane.showMessageDialog(null, "You only have: " + dollar);
 				} else if (bet <= 0) {
 					System.out.println("You have to enter a positive amount of money!");
-					JOptionPane.showMessageDialog(null, "You have to enter a positive amount of money!");
 				} else {
 					dollar -= bet;
 					currentBet = bet;
@@ -90,7 +89,6 @@ public class Player {
 				}
 			} catch (Exception e) {
 				System.out.println("Not an integer!");
-				JOptionPane.showMessageDialog(null, "Not an integer!");
 			}
 		}
 	}		
@@ -101,11 +99,8 @@ public class Player {
 	public void set(boolean won) {
 		if (won == true) {
 			System.out.println("Congratulations you won! You doubled your bet.");
-			JOptionPane.showMessageDialog(null, "Congratulations you won! You doubled your bet.");
 			dollar += 2 * currentBet;
-		} else {
 			System.out.println("Congratulations you lost! You lost your bet.");
-			JOptionPane.showMessageDialog(null, "you lost. You lost your bet.");
 		}	
 		
 		currentBet = 0;
